@@ -1,0 +1,20 @@
+ 1256  rails new Hr-xpress -d mysql
+ 1257  cd Hr-xpress/
+ 1258  gedit config/database.yml 
+ 1259  rake db:create
+ 1260  rails g model Mandate name:string 
+ 1261  rake db:migrate
+ 1262  rails g model Applicant name:string
+ 1263  rails g model Interview mandate_id:integer applicant_id:integer 
+ 1264  rake db:migrate
+ 1265  gedit app/models/applicant.rb  app/models/mandate.rb  app/models/interview.rb 
+ 1266  rake db:migrate
+ 1267  rails console
+ 1268  rake db:rollback
+ 1269  rails destroy model Interview 
+ 1270  rails g scoffald Interview mandate:references applicant:references description:string
+ 1271  rails g scaffold Interview mandate:references applicant:references description:string
+ 1272  rake db:migrate
+ 1273  rails console
+ 1274  rails s
+
